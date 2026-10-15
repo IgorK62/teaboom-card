@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /docs/
+Disallow: /.github/
+Disallow: /scss/
 
 Sitemap: https://igork62.github.io/teaboom-card/sitemap.xml
