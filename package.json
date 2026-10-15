@@ -1,0 +1,27 @@
+{
+  "name": "teaboom-card",
+  "version": "1.0.0",
+  "description": "Карточка товара «Ананасовый улун» — тестовое задание Teaboom.ru (HTML5, SCSS 7-1, vanilla JS)",
+  "private": true,
+  "scripts": {
+    "sass": "sass --no-source-map scss/main.scss css/styles.css",
+    "sass:watch": "sass --no-source-map --watch scss/main.scss css/styles.css",
+    "serve": "python3 -m http.server 8080"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IgorK62/teaboom-card.git"
+  },
+  "keywords": [
+    "html5",
+    "scss",
+    "bem",
+    "vanilla-js",
+    "product-card",
+    "test-task"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.105.1"
+  }
+}

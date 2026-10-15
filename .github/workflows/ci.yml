@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Compile SCSS
+        run: npx sass --no-source-map scss/main.scss /tmp/check.css
+
+      - name: Verify committed CSS matches SCSS build
+        run: |
+          # Собранный CSS обязан совпадать с закоммиченным css/styles.css
+          # (иначе css/ отредактирован руками вместо scss/)
+          npx sass --no-source-map scss/main.scss css/styles.css
+          if ! git diff --exit-code -- css/styles.css; then
+            echo "::error::css/styles.css diverges from scss build — run: npm run sass"
+            exit 1
+          fi
+
+      - name: Validate HTML (W3C nu)
+        run: python3 .github/scripts/check-w3c.py
+
+      - name: Smoke check (page and assets open)
+        run: |
+          python3 -m http.server 8080 --directory . &
+          SERVER_PID=$!
+          sleep 1
+          curl -sf -o /dev/null http://127.0.0.1:8080/index.html
+          curl -sf -o /dev/null http://127.0.0.1:8080/css/styles.css
+          curl -sf -o /dev/null http://127.0.0.1:8080/js/script.js
+          curl -sf -o /dev/null http://127.0.0.1:8080/img/ananasoviy-ulun.jpg
+          kill $SERVER_PID
+          echo "All assets return 200"
