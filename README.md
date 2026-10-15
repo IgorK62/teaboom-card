@@ -4,6 +4,8 @@
 [![W3C Valid HTML](https://img.shields.io/badge/W3C-valid%20HTML5-005a9c)](https://validator.w3.org/nu/?doc=https://igork62.github.io/teaboom-card/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
+**Живое демо:** https://igork62.github.io/teaboom-card/
+
 Тестовое задание [Teaboom.ru](https://teaboom.ru): вёрстка верхней части
 карточки товара [«Ананасовый улун»](https://teaboom.ru/product/ananasovij-ulun) —
 изображение, название, категория, выбор фасовки, артикул, актуальная цена,
