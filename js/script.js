@@ -19,8 +19,19 @@
     oldValue: document.querySelector('#price-old .price__value'),
     discount: document.getElementById('product-discount'),
     priceRow: document.getElementById('product-price'),
-    schemaPrice: document.getElementById('schema-price'),
+    jsonLdPrice: document.querySelector('script[type="application/ld+json"]'),
   };
+
+  /* Обновление цены в JSON-LD (структурированные данные остаются
+     синхронными с интерфейсом при смене фасовки по умолчанию) */
+  function updateJsonLdPrice(price) {
+    if (!els.jsonLdPrice) return;
+    try {
+      const data = JSON.parse(els.jsonLdPrice.textContent);
+      data.offers.price = price;
+      els.jsonLdPrice.textContent = JSON.stringify(data, null, 2);
+    } catch (e) { /* некорректный JSON-LD не ломает интерфейс */ }
+  }
 
   /**
    * 1432   → «1 432 ₽»
@@ -53,7 +64,7 @@
 
     els.current.textContent = formatPrice(price);
     els.sku.textContent = input.value;
-    els.schemaPrice.setAttribute('content', String(price)); // микроданные Offer
+    updateJsonLdPrice(price); // структурированные данные следуют за интерфейсом
 
     els.old.hidden = !hasDiscount;
     els.discount.hidden = !hasDiscount;

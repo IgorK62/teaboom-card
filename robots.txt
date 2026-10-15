@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://igork62.github.io/teaboom-card/sitemap.xml

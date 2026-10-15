@@ -23,6 +23,29 @@
   <meta name="twitter:title" content="Ананасовый улун — карточка товара | Teaboom.ru">
   <meta name="twitter:description" content="Ароматизированный чай с кусочками ананаса и папайи. Фасовки 100 г — 5000 г.">
   <meta name="twitter:image" content="https://igork62.github.io/teaboom-card/docs/og-image.png">
+
+  <!-- Структурированные данные (JSON-LD — рекомендуемый Google формат):
+       Product + Offer синхронизируются с интерфейсом в js/script.js -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Ананасовый улун",
+    "description": "Светлый китайский улун с кусочками сушёного ананаса, папайи и цедрой апельсина. Настой с медово-цветочным ароматом, мягким тропическим вкусом и сладким послевкусием.",
+    "image": "https://igork62.github.io/teaboom-card/img/ananasoviy-ulun.jpg",
+    "sku": "01307",
+    "brand": { "@type": "Brand", "name": "Teaboom.ru" },
+    "itemCondition": "https://schema.org/NewCondition",
+    "category": "Ароматизированный улун",
+    "offers": {
+      "@type": "Offer",
+      "url": "https://igork62.github.io/teaboom-card/",
+      "priceCurrency": "RUB",
+      "price": 1432,
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
   <meta name="theme-color" content="#f7f5f0">
   <!-- Страница поддерживает только светлую схему интерфейса -->
   <meta name="color-scheme" content="light">
@@ -44,30 +67,26 @@
       scss/components/ и может переиспользоваться независимо.
       Микроданные Schema.org (Product + Offer) синхронизируются в js.
     -->
-    <article class="product" itemscope itemtype="https://schema.org/Product">
+    <article class="product">
 
       <!-- Изображение товара -->
       <figure class="media">
         <p class="media__discount" id="product-discount">−13%</p>
         <img class="media__img" src="img/ananasoviy-ulun.jpg" width="1024" height="1024"
-             fetchpriority="high" decoding="async" itemprop="image"
+             fetchpriority="high" decoding="async"
              alt="Ананасовый улун — скрученный чайный лист с кусочками ананаса и цукатами">
       </figure>
 
       <!-- Информация о товаре -->
       <div class="product__content">
         <header>
-          <a class="category" href="#" itemprop="category">Ароматизированный улун</a>
-          <h1 class="product__title" itemprop="name">Ананасовый улун</h1>
-          <p class="sku product__sku">Артикул: <span id="product-sku" itemprop="sku">01307</span></p>
+          <a class="category" href="#">Ароматизированный улун</a>
+          <h1 class="product__title">Ананасовый улун</h1>
+          <p class="sku product__sku">Артикул: <span id="product-sku">01307</span></p>
         </header>
 
         <!-- Цена (aria-live: смена фасовки озвучивается скринридером) -->
-        <div class="price product__price" id="product-price" aria-live="polite"
-             itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-          <meta itemprop="priceCurrency" content="RUB">
-          <meta itemprop="price" id="schema-price" content="1432">
-          <link itemprop="availability" href="https://schema.org/InStock">
+        <div class="price product__price" id="product-price" aria-live="polite">
           <span class="price__current" id="price-current">1&nbsp;432&nbsp;₽</span>
           <s class="price__old" id="price-old">
             <span class="visually-hidden">Старая цена:</span>
@@ -117,7 +136,7 @@
         <!-- Короткое описание товара -->
         <section class="description product__description">
           <h2 class="description__title">Описание</h2>
-          <p class="description__text" itemprop="description">Ананасовый улун&nbsp;— светлый китайский улун с&nbsp;кусочками сушёного ананаса, папайи и&nbsp;цедрой апельсина. Настой с&nbsp;медово-цветочным ароматом, мягким тропическим вкусом и&nbsp;сладким послевкусием.</p>
+          <p class="description__text">Ананасовый улун&nbsp;— светлый китайский улун с&nbsp;кусочками сушёного ананаса, папайи и&nbsp;цедрой апельсина. Настой с&nbsp;медово-цветочным ароматом, мягким тропическим вкусом и&nbsp;сладким послевкусием.</p>
         </section>
       </div>
 
