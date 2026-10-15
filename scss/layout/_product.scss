@@ -1,0 +1,57 @@
+@use '../abstracts/mixins' as *;
+
+// ============================================================
+// Блок .product — только раскладка карточки: сетка «фото +
+// контент» и вертикальный ритм через миксы .product__*.
+// Внешний вид вложенных блоков живёт в scss/components/*.
+// ============================================================
+
+.product {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 56px);
+  align-items: start;
+  padding: clamp(16px, 3vw, 40px);
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+
+  @include below(md) {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+// Название — уникальный элемент карточки, а не переиспользуемый блок
+.product__title {
+  margin-top: 8px;
+  font-size: clamp(26px, 3.2vw, 38px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+// Миксы-слоты: блокам (.sku, .price, .pack, .button, .description)
+// отступы «снаружи» не знакомы — ритм задаёт карточка
+.product__sku {
+  margin-top: 10px;
+}
+
+.product__price {
+  margin-top: 22px;
+}
+
+.product__pack {
+  margin-top: 26px;
+}
+
+.product__cart {
+  margin-top: 28px;
+}
+
+.product__description {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--c-line);
+}

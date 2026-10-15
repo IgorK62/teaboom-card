@@ -1,0 +1,37 @@
+// ============================================================
+// Дизайн-токены: единственный источник правды по палитре.
+// SCSS-карта компилируется в CSS-переменные на :root — стили
+// компонентов ссылаются на var(--c-*), а не на «запечённые»
+// значения.
+// ============================================================
+
+/// Палитра — тёплая «чайная» гамма в стилистике Teaboom.ru
+$palette: (
+  'bg': #f7f5f0,
+  'surface': #ffffff,
+  'surface-warm': #f3f0e8,
+  'ink': #23231f,
+  'ink-soft': #6d6a60,
+  'line': #e8e3d9,
+  'line-strong': #d8d2c4,
+  'green': #316b4a,
+  'green-dark': #27563b,
+  'green-tint': #eff5f0,
+  'amber': #b05c1f,
+  'amber-tint': #fbeee0,
+) !default;
+
+:root {
+  @each $name, $color in $palette {
+    --c-#{$name}: #{$color};
+  }
+
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-card: 0 1px 2px rgba(35, 35, 31, 0.05), 0 12px 32px rgba(35, 35, 31, 0.07);
+  --shadow-btn: 0 6px 16px rgba(49, 107, 74, 0.3);
+
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  color-scheme: light;
+}

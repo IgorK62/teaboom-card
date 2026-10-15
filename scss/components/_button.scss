@@ -1,0 +1,49 @@
+@use '../abstracts/variables' as *;
+
+// ============================================================
+// Блок .button — переиспользуемая кнопка.
+// Модификатор --primary задаёт цветовую схему,
+// --added — состояние отклика после добавления.
+// ============================================================
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 16px 24px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  transition:
+    background-color $dur-fast,
+    transform $dur-fast,
+    box-shadow $dur-fast;
+}
+
+.button--primary {
+  color: #fff;
+  background: var(--c-green);
+
+  &:hover {
+    background: var(--c-green-dark);
+    box-shadow: var(--shadow-btn);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+
+  // Короткий отклик после клика (реальная корзина не требуется)
+  &.button--added {
+    background: var(--c-green-dark);
+  }
+}
+
+.button__icon {
+  width: 20px;
+  height: 20px;
+}

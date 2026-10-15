@@ -1,0 +1,18 @@
+// ============================================================
+// Точка входа стилей (БЭМ, компонентный подход 7-1).
+// Сборка: npx sass scss/main.scss css/styles.css
+// ============================================================
+
+@use 'base/tokens'; // дизайн-токены → CSS-переменные
+@use 'base/base'; // reset, доступность, reduced motion
+
+@use 'layout/page'; // контейнер страницы
+@use 'layout/product'; // сетка карточки и миксы-слоты
+
+@use 'components/media'; // фото товара + бейдж скидки
+@use 'components/category'; // ссылка на категорию
+@use 'components/sku'; // артикул
+@use 'components/price'; // цена
+@use 'components/pack'; // выбор фасовки
+@use 'components/button'; // кнопка «В корзину»
+@use 'components/description'; // описание

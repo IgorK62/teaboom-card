@@ -1,0 +1,80 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// ============================================================
+// Блок .pack — выбор фасовки (нативные radio под плитками)
+// ============================================================
+
+.pack__legend {
+  margin-bottom: 12px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.pack__options {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+
+  @include below(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.pack__option {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+  border: 1.5px solid var(--c-line);
+  border-radius: var(--radius-md);
+  background: var(--c-surface);
+  cursor: pointer;
+  transition:
+    border-color $dur-fast,
+    background-color $dur-fast;
+
+  &:hover {
+    border-color: var(--c-green);
+  }
+
+  // Выбранная фасовка (линия + тёплая заливка)
+  &:has(.pack__input:checked) {
+    border-color: var(--c-green);
+    background: var(--c-green-tint);
+
+    .pack__weight {
+      color: var(--c-green-dark);
+    }
+  }
+
+  // Видимый фокус вместо контура на скрытом инпуте
+  &:has(.pack__input:focus-visible) {
+    outline: 2px solid var(--c-green);
+    outline-offset: 2px;
+  }
+}
+
+// Невидимый radio поверх плитки: нативная клавиатурная работа
+// (стрелки, пробел) и во всю ширину увеличенная зона нажатия
+.pack__input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.pack__weight {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.pack__price {
+  font-size: 13px;
+  color: var(--c-ink-soft);
+}

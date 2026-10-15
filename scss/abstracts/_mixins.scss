@@ -1,0 +1,10 @@
+@use 'sass:map';
+@use 'variables' as *;
+
+/// Медиазапрос «ниже указанной точки перелома».
+/// below(md) → @media (max-width: 899px)
+@mixin below($name) {
+  @media (max-width: (map.get($breakpoints, $name) - 1)) {
+    @content;
+  }
+}

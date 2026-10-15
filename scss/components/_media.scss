@@ -1,0 +1,31 @@
+// ============================================================
+// Блок .media — изображение товара и бейдж скидки
+// ============================================================
+
+.media {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-md);
+  background: var(--c-surface-warm);
+}
+
+.media__img {
+  width: 100%;
+  height: auto; // атрибут height из HTML не должен ломать aspect-ratio
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.media__discount {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 5px 12px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #fff;
+  background: var(--c-amber);
+  border-radius: 999px;
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ананасовый улун — карточка товара | Teaboom.ru</title>
+  <meta name="description" content="Ананасовый улун — ароматизированный чай с кусочками ананаса и папайи. Фасовки от 100 г до 5 кг, цены и артикулы на выбор фасовки.">
+  <meta name="theme-color" content="#f7f5f0">
+  <!-- Страница поддерживает только светлую схему интерфейса -->
+  <meta name="color-scheme" content="light">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23316b4a'/%3E%3Cpath d='M16 6c-5 3-8 6.5-8 11a8 8 0 0 0 16 0c0-4.5-3-8-8-11zm0 17a5 5 0 0 1-5-5c0-2.6 1.7-4.9 5-7.2 3.3 2.3 5 4.6 5 7.2a5 5 0 0 1-5 5z' fill='%23fff'/%3E%3C/svg%3E">
+
+  <!-- Производительность: LCP-изображение подгружается с высоким
+       приоритетом, не дожидаясь разбора CSS и <img> -->
+  <link rel="preload" as="image" href="img/ananasoviy-ulun.png" fetchpriority="high">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <main class="page">
+    <!--
+      Карточка товара: блок .product задаёт только раскладку (сетка,
+      вертикальный ритм через миксы .product__*), а каждый вложенный
+      блок (.media, .price, .pack, .button…) описан в своём файле
+      scss/components/ и может переиспользоваться независимо.
+      Микроданные Schema.org (Product + Offer) синхронизируются в js.
+    -->
+    <article class="product" itemscope itemtype="https://schema.org/Product">
+
+      <!-- Изображение товара -->
+      <figure class="media">
+        <p class="media__discount" id="product-discount">−13%</p>
+        <img class="media__img" src="img/ananasoviy-ulun.png" width="1024" height="1024"
+             fetchpriority="high" decoding="async" itemprop="image"
+             alt="Ананасовый улун — скрученный чайный лист с кусочками ананаса и цукатами">
+      </figure>
+
+      <!-- Информация о товаре -->
+      <div class="product__content">
+        <header>
+          <a class="category" href="#" itemprop="category">Ароматизированный улун</a>
+          <h1 class="product__title" itemprop="name">Ананасовый улун</h1>
+          <p class="sku product__sku">Артикул: <span id="product-sku" itemprop="sku">01307</span></p>
+        </header>
+
+        <!-- Цена (aria-live: смена фасовки озвучивается скринридером) -->
+        <div class="price product__price" id="product-price" aria-live="polite"
+             itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+          <meta itemprop="priceCurrency" content="RUB">
+          <meta itemprop="price" id="schema-price" content="1432">
+          <link itemprop="availability" href="https://schema.org/InStock">
+          <span class="price__current" id="price-current">1&nbsp;432&nbsp;₽</span>
+          <s class="price__old" id="price-old">
+            <span class="visually-hidden">Старая цена:</span>
+            <span class="price__value">1&nbsp;646&nbsp;₽</span>
+          </s>
+        </div>
+
+        <!-- Выбор фасовки: обновляет цену, старую цену и артикул -->
+        <fieldset class="pack product__pack">
+          <legend class="pack__legend">Фасовка</legend>
+          <div class="pack__options">
+            <label class="pack__option">
+              <input class="pack__input" type="radio" name="pack" value="01306"
+                     data-price="326.4" data-old="349.2">
+              <span class="pack__weight">100&nbsp;г</span>
+              <span class="pack__price">326,40&nbsp;₽</span>
+            </label>
+            <label class="pack__option">
+              <input class="pack__input" type="radio" name="pack" value="01307" checked
+                     data-price="1432" data-old="1646">
+              <span class="pack__weight">500&nbsp;г</span>
+              <span class="pack__price">1&nbsp;432&nbsp;₽</span>
+            </label>
+            <label class="pack__option">
+              <input class="pack__input" type="radio" name="pack" value="01308"
+                     data-price="2064" data-old="2592">
+              <span class="pack__weight">1000&nbsp;г</span>
+              <span class="pack__price">2&nbsp;064&nbsp;₽</span>
+            </label>
+            <label class="pack__option">
+              <input class="pack__input" type="radio" name="pack" value="01309"
+                     data-price="6320" data-old="8710">
+              <span class="pack__weight">5000&nbsp;г</span>
+              <span class="pack__price">6&nbsp;320&nbsp;₽</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- Кнопка «В корзину»: обычное состояние и hover (реальная корзина не нужна) -->
+        <button class="button button--primary product__cart" type="button" id="add-to-cart">
+          <svg class="button__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M18 6h-2c0-2.21-1.79-4-4-4S8 3.79 8 6H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6-2c1.1 0 2 .9 2 2h-4c0-1.1.9-2 2-2zm0 10c-2.76 0-5-2.24-5-5h2c0 1.66 1.34 3 3 3s3-1.34 3-3h2c0 2.76-2.24 5-5 5z"/>
+          </svg>
+          <span class="button__label">В корзину</span>
+        </button>
+
+        <!-- Короткое описание товара -->
+        <section class="description product__description">
+          <h2 class="description__title">Описание</h2>
+          <p class="description__text" itemprop="description">Ананасовый улун&nbsp;— светлый китайский улун с&nbsp;кусочками сушёного ананаса, папайи и&nbsp;цедрой апельсина. Настой с&nbsp;медово-цветочным ароматом, мягким тропическим вкусом и&nbsp;сладким послевкусием.</p>
+        </section>
+      </div>
+
+    </article>
+  </main>
+</body>
+</html>

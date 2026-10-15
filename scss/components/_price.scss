@@ -1,0 +1,37 @@
+@use '../abstracts/variables' as *;
+
+// ============================================================
+// Блок .price — актуальная и старая цена.
+// Модификатор .is-updated ставит script.js при смене фасовки.
+// ============================================================
+
+.price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 14px;
+}
+
+.price__current {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--c-amber);
+}
+
+.price__old {
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--c-ink-soft);
+}
+
+.price.is-updated {
+  animation: fade-in-up $dur-base $ease-out;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}

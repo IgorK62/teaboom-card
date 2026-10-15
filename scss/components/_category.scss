@@ -1,0 +1,17 @@
+// ============================================================
+// Блок .category — ссылка на категорию товара
+// ============================================================
+
+.category {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--c-green);
+
+  &:hover {
+    color: var(--c-green-dark);
+    text-decoration: underline;
+  }
+}
